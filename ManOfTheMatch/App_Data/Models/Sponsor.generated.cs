@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>sponsors</summary>
-	[PublishedContentModel("sponsors")]
-	public partial class Sponsors : PublishedContentModel
+	/// <summary>sponsor</summary>
+	[PublishedContentModel("sponsor")]
+	public partial class Sponsor : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "sponsors";
+		public new const string ModelTypeAlias = "sponsor";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public Sponsors(IPublishedContent content)
+		public Sponsor(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,9 +40,36 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Sponsors, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Sponsor, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Sponsor image: images shown with sponsor
+		///</summary>
+		[ImplementPropertyType("sponsorImage")]
+		public IPublishedContent SponsorImage
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("sponsorImage"); }
+		}
+
+		///<summary>
+		/// Sponsor Image text: Text that's shown on sponsor image
+		///</summary>
+		[ImplementPropertyType("sponsorImageText")]
+		public string SponsorImageText
+		{
+			get { return this.GetPropertyValue<string>("sponsorImageText"); }
+		}
+
+		///<summary>
+		/// Sponsor Name: Sponsor name
+		///</summary>
+		[ImplementPropertyType("sponsorName")]
+		public string SponsorName
+		{
+			get { return this.GetPropertyValue<string>("sponsorName"); }
 		}
 	}
 }

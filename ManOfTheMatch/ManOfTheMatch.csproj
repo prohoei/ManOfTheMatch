@@ -338,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiController\ClubsController.cs" />
+    <Compile Include="ApiController\SponsorController.cs" />
     <Compile Include="App_Start\UmbracoAuthTokenServerExtensions.cs" />
     <Compile Include="App_Start\UmbracoCustomOwinStartup.cs" />
     <Compile Include="App_Start\UmbracoStandardOwinStartup.cs" />

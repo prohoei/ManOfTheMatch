@@ -11,9 +11,18 @@ namespace ManOfTheMatch.ApiController
     public class ClubsController : UmbracoAuthorizedApiController
     {
         // Custom api get
+        [HttpGet]
         public IEnumerable<string> GetAllProducts()
         {
             return new[] { "Table", "Chair", "Desk", "Computer", "Beer fridge" };
+            /*
+            var rootNodes = Umbraco.TypedContentAtRoot();
+            var eventsNode = rootNodes.FirstOrDefault(x => x.DocumentTypeAlias == "eventsList");
+
+            var events = eventsNode.Children.OfType<Sponsor>();
+
+            Json<IEnumerable<Event>>(events.ToList());
+            */
         }
             
         // GET: api/Clubs

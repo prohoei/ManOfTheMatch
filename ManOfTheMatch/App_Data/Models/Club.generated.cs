@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>sponsors</summary>
-	[PublishedContentModel("sponsors")]
-	public partial class Sponsors : PublishedContentModel
+	/// <summary>club</summary>
+	[PublishedContentModel("club")]
+	public partial class Club : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "sponsors";
+		public new const string ModelTypeAlias = "club";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public Sponsors(IPublishedContent content)
+		public Club(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,9 +40,18 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Sponsors, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Club, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Club Name
+		///</summary>
+		[ImplementPropertyType("clubName")]
+		public string ClubName
+		{
+			get { return this.GetPropertyValue<string>("clubName"); }
 		}
 	}
 }
